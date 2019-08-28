@@ -139,8 +139,8 @@ export class _DiscoveryStreamBase extends React.PureComponent {
         ) {
           return null;
         }
+
         // Grab the first item in the array as we only have 1 spoc position.
-        const [spoc] = component.data.spocs;
         const {
           image_src,
           alt_text,
@@ -151,14 +151,14 @@ export class _DiscoveryStreamBase extends React.PureComponent {
           campaign_id,
           id,
           shim,
-        } = spoc;
+        } = component.data.spocs[0];
 
         return (
           <DSDismiss
             data={{
-              url: spoc.url,
-              guid: spoc.id,
-              shim: spoc.shim,
+              url: url,
+              guid: id,
+              shim: shim,
             }}
             dispatch={this.props.dispatch}
             shouldSendImpressionStats={true}
